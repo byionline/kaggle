@@ -5,7 +5,6 @@ from sklearn import preprocessing
 from sklearn import ensemble
 from sklearn import metrics
 from . import dispatcher
-import joblib
 
 #TRAINING_DATA = None
 TRAINING_DATA = os.environ.get("TRAINING_DATA")
@@ -56,10 +55,6 @@ if __name__ == "__main__":
     # calculate AOC 
     print(metrics.roc_auc_score(yvalid, preds))
 
-    #Save the models
-    joblib.dump(label_encoders, f"models/{MODEL}_{FOLD}_label_encoder.pkl")
-    joblib.dump(clf, f"models/{MODEL}_{FOLD}.pkl")
-
 """
 Note:
 Compute Area Under the Receiver Operating Characteristic Curve (ROC AUC) from prediction scores.
@@ -69,7 +64,4 @@ but some restrictions apply (see Parameters).
  sklearn.metrics.roc_auc_score(y_true, y_score, average='macro', sample_weight=None, max_fpr=None, multi_class='raise', labels=None)[source]¶
 
 """
-"""
-     joblib.dump(label_encoders, f"models/{MODEL}_label_encoder.pkl")
-     joblib.dump(clf, f"models/{MODEL}.pkl")
-"""
+
